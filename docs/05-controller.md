@@ -40,15 +40,17 @@ class PostController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-    // GET /posts/create - Form create
+    // GET /posts/create - Form create , method ini akan memanggil view create.blade.php
     public function create()
     {
         return view('posts.create');
     }
 
-    // POST /posts - Simpan post baru
+    // POST /posts - Simpan post baru, method ini akan menyimpan data ke database (POST itu untuk mengirimkan data ke server/database)
+    // flownya setelah dari form create kemudian klik submit maka data akan dikirim ke method store ini
     public function store(Request $request)
     {
+        // $request->validate() digunakan untuk memvalidasi data yang dikirim dari form
         $validated = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',

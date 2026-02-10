@@ -131,6 +131,8 @@ Default value --}} {{ $name ?? 'Guest' }} {{ $user->name ?? 'Anonymous' }}
 ### 6. Loop Variable
 
 Di dalam loop, Blade menyediakan variable `$loop`:
+fetch data dari controller
+$users = User::all();
 
 ```html
 @foreach ($users as $user) @if ($loop->first)
