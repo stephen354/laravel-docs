@@ -46,15 +46,16 @@ class UserController extends Controller
 {
     public function index()
     {
+        // variabel user mengambil data dari model Users
         $users = User::all();
 
-        // Memanggil view dengan data
+        // Memanggil view dengan data array, mengirimkan data ke view yang nantinya akan dipanggil di view
         return view('users.index', ['users' => $users]);
 
-        // Atau menggunakan compact()
+        // Atau menggunakan compact() - ini metode sama seperti diatas , jika lebih dari satu variabel bisa pakai compact('users', 'posts', 'comments')
         return view('users.index', compact('users'));
 
-        // Atau menggunakan with()
+        // Atau menggunakan with() - ini metode sama seperti diatas , kalau with lebih dari satu variable pakai with('users', 'posts', 'comments')
         return view('users.index')->with('users', $users);
     }
 }
